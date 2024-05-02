@@ -1,9 +1,18 @@
-const map = [{img: "image1.jpeg", audio:"scares1.mp3",},
-             {img:"image2.jpeg",audio:"scares2.mp3",}
-];
-var object = {};
+function biding_map(number){
+    let map = [];
+    for(let i=0;i<number;++i){
+        let img_t = "image"+(i+1)+".jpeg";
+        let audio_t = "scares"+(i+1)+".mp3";
+        map.push({img:img_t, audio:audio_t,});
+    }
+    return map;
+}
 
+const map = biding_map(2);
+
+var object = {};
 var counter = false;
+
 function randomized(max){
     return Math.floor(Math.random() * max);
 }
@@ -66,7 +75,7 @@ function time(){
             if(count<0){
                 active();
                 counter = false;
-                setInterval(()=>{window.location.href = "./index.html";}
+                setInterval(()=>{window.location.replace("./index.html");}
                 ,4000);
                 }
         },1000);
@@ -80,7 +89,7 @@ function visible(){
     part2.style.display = "inline";
     part1.style.display = "none";
     
-    const choose = randomized(2);
+    const choose = randomized(map.length);
 
     object.audio = setupAudio(choose);
     object.img = setupImg(choose);
