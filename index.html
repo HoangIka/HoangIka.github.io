@@ -4,15 +4,23 @@
 <head>
   <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
   <link rel="stylesheet" href="style.css">
-  <title>fun website</title>
+  <title>fun website - version: 1.0.0</title>
 </head>
 <body>
   <div class="container">
-    <div>
+    <div id="part-hidden">
       <h1 class="timer"></h1>
-    </div>
+    
     <button class="btn" onclick="active()">click here! :)</button>
-    <script src="script.js" defer></script>
+    </div>
+    <audio style="display:none" id="aud" autoplay controls>
+      <source src="creepy.mp3"/>
+    </audio>
   </div>
+  
+  <div id="part-visible">
+    <button class="btn" onclick="visible()">play.</button>
+  </div>
+  <script src="script.js" defer></script>
 </body>
 </html>
