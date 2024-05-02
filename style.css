@@ -108,6 +108,6 @@ body{
     transform: rotate(-20deg);
   }
 }
-#part-hidden{
+#parthidden{
   display: none;
 }

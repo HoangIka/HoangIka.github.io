@@ -1,109 +1,90 @@
 const map = [{img: "image1.jpeg", audio:"scares1.mp3",},
              {img:"image2.jpeg",audio:"scares2.mp3",}
 ];
+var object = {};
 
-const contain = document.querySelector(".container");
-var img = document.createElement("img");
-var audio = document.createElement("audio");
+var counter = false;
+function randomized(max){
+    return Math.floor(Math.random() * max);
+}
 
 /*---------------------------onclick---------------------------*/
 function active(){
     console.log("actived!");
     
-    /*const contain = document.querySelector(".container");
-    let img = document.createElement("img");
-    let audio = document.createElement("audio");
     
-    const choose = randomized(2);
+    const contain = document.querySelector(".container");
     
-    setupImg(img,choose);
-    setupAudio(audio,choose);*/
-    
-    document.body.insertBefore(img,contain);
-    document.body.insertBefore(audio,contain);
-    
-    audio.load();
-    audio.play().then(() => {
-        console.log("Audio playing automatically");
-    }).catch(error => {
-        console.log("Error occurred during audio playback:", error.message);
-    });
-    
+    document.body.insertBefore(object.img,contain);
+    document.body.insertBefore(object.audio,contain);
+    let play_audio = document.querySelector(".playing");
+    play_audio.play();
     setInterval(()=>{window.location.href = "./index.html";}
     ,4000);
 }
 /*---------------------------function---------------------------*/
-function randomized(max){
-    return Math.floor(Math.random() * max);
-}
-
-function setupImg(obj,choose){
-    
+function setupImg(choose){
     console.log(map[choose].img);
+    let obj = document.createElement("img");
+    
     obj.setAttribute("src",map[choose].img);
     obj.setAttribute("type","image/jpeg image/png image/jpg");
-    obj.volume = 2;
+    
     obj.classList.add("image");
     obj.classList.add("shaking");
+    
+    return obj;
 }
 
-function setupAudio(audio,choose){
-    
+function setupAudio(choose){
     console.log(map[choose].audio);
     
-    audio.setAttribute("src",map[choose].audio);
-    audio.setAttribute("type","audio/mpeg");
-    audio.setAttribute("autoplay","1");
-    audio.setAttribute("controls","");
+    let obj = document.createElement("audio");
     
-    audio.style.display="none";
-  doing = true;
+    obj.setAttribute("src",map[choose].audio);
+    obj.setAttribute("type","audio/mpeg");
+    obj.setAttribute("controls","");
+    obj.classList.add("playing");
+    obj.style.display="none";
+    counter = true;
+    return obj;
 }
 /*---------------------------------------------------------------*/
-let count = 10, counter = true, doing = false;
+let count = 10;
 
 function time(){
-        setInterval(()=>{
-            if(!counter||!doing){
+    setInterval(()=>{
+        
+            if(!counter){
                 return;
             }
             let timer = document.querySelector(".timer");
-            /*console.log(count);*/
-            if(1){
-                timer.style.display = "inline";
-                timer.innerText = count + "s";
-                --count;
-                if(count<0){
-                    document.body.insertBefore(img,contain);
-    document.body.insertBefore(audio,contain);
-    
-    audio.load();
-    audio.play().then(() => {
-        console.log("Audio playing automatically");
-    }).catch(error => {
-        console.log("Error occurred during audio playback:", error.message);
-    });
-    
-    setInterval(()=>{window.location.href = "./index.html";}
-    ,4000);
-                    counter = false;
+            
+            timer.style.display = "inline";
+            timer.innerText = count + "s";
+            --count;
+            if(count<0){
+                active();
+                counter = false;
+                setInterval(()=>{window.location.href = "./index.html";}
+                ,4000);
                 }
-            }
         },1000);
 }
 function visible(){
+    let part1 = document.querySelector(".partvisible");
+    let part2 = document.querySelector(".parthidden")
+    let bg_audio = document.querySelector(".bg-audio");
     
-    let part1 = document.querySelector("#part-visible");
-    let part2 = document.querySelector("#part-hidden");
-    let aud = document.querySelector("#aud");
-    
-    aud.play();
-    part2.id = "";
+    bg_audio.play();
+    part2.style.display = "inline";
     part1.style.display = "none";
     
     const choose = randomized(2);
 
-    setupAudio(audio,choose);
-    setupImg(img,choose);
+    object.audio = setupAudio(choose);
+    object.img = setupImg(choose);
 }
+
+
 time();
