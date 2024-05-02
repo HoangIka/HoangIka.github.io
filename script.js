@@ -57,6 +57,7 @@ function setupAudio(audio,choose){
     audio.setAttribute("controls","");
     
     audio.style.display="none";
+  doing = true;
 }
 /*---------------------------------------------------------------*/
 let count = 10, counter = true, doing = false;
@@ -91,7 +92,7 @@ function time(){
         },1000);
 }
 function visible(){
-    doing = true;
+    
     let part1 = document.querySelector("#part-visible");
     let part2 = document.querySelector("#part-hidden");
     let aud = document.querySelector("#aud");
