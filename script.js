@@ -1,17 +1,18 @@
-function biding_map(number){
+function biding_map(obj1,obj2,number){
     let map = [];
     for(let i=0;i<number;++i){
-        let img_t = "image"+(i+1)+".jpeg";
-        let audio_t = "scares"+(i+1)+".mp3";
+        let img_t = obj1+(i+1)+".jpeg";
+        let audio_t = obj2+(i+1)+".mp3";
         map.push({img:img_t, audio:audio_t,});
     }
     return map;
 }
 
-const map = biding_map(2);
+const map = biding_map("image","scares",2);
 
 var object = {};
-var counter = false;
+var counting = false;
+var duration;
 
 function randomized(max){
     return Math.floor(Math.random() * max);
@@ -55,28 +56,36 @@ function setupAudio(choose){
     obj.setAttribute("controls","");
     obj.classList.add("playing");
     obj.style.display="none";
-    counter = true;
+    
+    temp = obj;
+    temp.setAttribute("muted","true");
+    temp.style.display = "none";
+    
+    temp.addEventListener("loadedmetadata", (event)=>{
+        duration = temp.duration;
+    });
+    counting = true;
     return obj;
 }
 /*---------------------------------------------------------------*/
-let count = 60;
+let countdown = 60;
 
 function time(){
     setInterval(()=>{
         
-            if(!counter){
+            if(!counting){
                 return;
             }
             let timer = document.querySelector(".timer");
             
             timer.style.display = "inline";
-            timer.innerText = count + "s";
-            --count;
-            if(count<0){
+            timer.innerText = countdown + "s";
+            --countdown;
+            if(counting<0){
                 active();
-                counter = false;
+                counting = false;
                 setInterval(()=>{window.location.replace("./index.html");}
-                ,4000);
+                ,(duration * 1000));
                 }
         },1000);
 }
@@ -94,6 +103,5 @@ function visible(){
     object.audio = setupAudio(choose);
     object.img = setupImg(choose);
 }
-
 
 time();

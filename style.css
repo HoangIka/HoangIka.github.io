@@ -28,6 +28,7 @@ body{
   border-radius: 25%;
   animation: shake 3s infinite;
   z-index: 0;
+  outline: none; 
 }
 
 @keyframes shake {
