@@ -28,7 +28,7 @@ function active(){
     document.body.insertBefore(object.audio,contain);
     let play_audio = document.querySelector(".playing");
     play_audio.play();
-    setInterval(()=>{window.location.href = "./index.html";}
+    setInterval(()=>{window.location.replace("./index.html");}
     ,4000);
 }
 /*---------------------------function---------------------------*/
