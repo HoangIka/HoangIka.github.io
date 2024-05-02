@@ -81,7 +81,7 @@ function time(){
             timer.style.display = "inline";
             timer.innerText = countdown + "s";
             --countdown;
-            if(counting<0){
+            if(countdown<0){
                 active();
                 counting = false;
                 setInterval(()=>{window.location.replace("./index.html");}
