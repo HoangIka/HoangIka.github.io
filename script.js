@@ -50,7 +50,7 @@ function setupAudio(choose){
     return obj;
 }
 /*---------------------------------------------------------------*/
-let count = 10;
+let count = 60;
 
 function time(){
     setInterval(()=>{
