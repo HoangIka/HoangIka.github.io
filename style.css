@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+body{
+  margin: 0;
+  background-color: black;
+  
+}
+
+.container{
+  position: relative;
+  overflow: visible;
+}
+
+.btn{
+  position: absolute;
+  height: 10rem;
+  width: 10rem;
+  background-color: gray;
+  
+  margin-top: 40vh;
+  margin-left: 40vw;
+  
+  font-family: "Creepster", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: red;
+  font-size: 2.5rem;
+  border-radius: 25%;
+  animation: shake 3s infinite;
+  z-index: 0;
+}
+
+@keyframes shake {
+  0%{
+    transform: rotate(-20deg);
+  }
+  50%{
+    transform: rotate(20deg);
+  }
+  100%{
+    transform: rotate(-20deg);
+  }
+}
+
+.image{
+  position: absolute;
+  z-index: 100;
+  animation: fade-in .1s;
+  margin-top: 15vh;
+  margin-left: -25vw;   
+  height: 150%;
+  width: auto;
+}
+@keyframes fade-in{
+  0%{
+    position: relative;
+    margin: 50vh 50vw;
+    
+    height: 5rem;
+    width: 5rem;
+    z-index: 2;
+  }
+  50%{
+    position: relative;
+    margin: 25vh 25vw;
+    height: 50vh;
+    width: 50vw;
+    
+    z-index: 2;
+  }
+  100%{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    
+    z-index: 2;
+  }
+}
+.test{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    z-index: 200;
+}
+.timer{
+  position: absolute;
+  margin-top: 32vh;
+  margin-left: 45vw;
+  
+  font-family: "Creepster", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 50px;
+  color: red;
+  display: none;
+}
+.shaking{
+  animation: shaking 0.2s ease infinite;
+}
+@keyframes shaking{
+  0%{
+    transform: rotate(-20deg);
+  }
+  50%{
+    transform: rotate(20deg);
+  }
+  100%{
+    transform: rotate(-20deg);
+  }
+}
