@@ -46,43 +46,18 @@ body{
 .image{
   position: absolute;
   z-index: 100;
-  animation: fade-in 5s ease;
   margin-top: 15vh;
-  margin-left: -25vw;   
+  margin-left: -45vw;   
   height: 150%;
   width: auto;
 }
-@keyframes fade-in{
-  0%{
-    position: relative;
-    margin: 50vh 50vw;
-    
-    height: 5rem;
-    width: 5rem;
-    z-index: 2;
-  }
-  50%{
-    position: relative;
-    margin: 25vh 25vw;
-    height: 50vh;
-    width: 50vw;
-    
-    z-index: 2;
-  }
-  100%{
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    
-    z-index: 2;
-  }
-}
+
 .test{
-    position: relative;
     height: 100vh;
     width: 100vw;
     z-index: 200;
 }
+
 .timer{
   position: absolute;
   margin-top: 32vh;
@@ -126,4 +101,9 @@ body{
   position: absolute;
   z-index: 300;
   
+}
+.playing{
+  position: absolute;
+  margin: 50px;
+  z-index: 400;
 }

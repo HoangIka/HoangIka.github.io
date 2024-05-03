@@ -8,11 +8,17 @@ function biding_map(obj1,obj2,number){
     return map;
 }
 
-const map = biding_map("image","scares",2);
+const map = biding_map("assets/image","assets/scares",2);
 
 var object = {};
 var counting = false;
 var duration;
+
+function audio_duration(){
+    let t = (duration*1000);
+    console.log(t);
+    return t;
+}
 
 function randomized(max){
     return Math.floor(Math.random() * max);
@@ -28,9 +34,12 @@ function active(){
     document.body.insertBefore(object.img,contain);
     document.body.insertBefore(object.audio,contain);
     let play_audio = document.querySelector(".playing");
+    
+    play_audio.load();
     play_audio.play();
-    setInterval(()=>{window.location.replace("./index.html");}
-    ,4000);
+    
+    setInterval(()=>{window.location.href="./index.html";}
+    ,audio_duration());
 }
 /*---------------------------function---------------------------*/
 function setupImg(choose){
@@ -42,6 +51,7 @@ function setupImg(choose){
     
     obj.classList.add("image");
     obj.classList.add("shaking");
+    obj.setAttribute("onclick","selfURL();");
     
     return obj;
 }
@@ -50,16 +60,16 @@ function setupAudio(choose){
     console.log(map[choose].audio);
     
     let obj = document.createElement("audio");
+    let source = document.createElement("source");
     
-    obj.setAttribute("src",map[choose].audio);
+    source.setAttribute("src",map[choose].audio);
+    source.setAttribute("preload","auto");
     obj.setAttribute("type","audio/mpeg");
     obj.setAttribute("controls","");
     obj.classList.add("playing");
-    obj.style.display="";
-    
+    obj.appendChild(source);
     temp = obj;
     temp.setAttribute("muted","true");
-    temp.style.display = "none";
     
     temp.addEventListener("loadedmetadata", (event)=>{
         duration = temp.duration;
@@ -68,6 +78,7 @@ function setupAudio(choose){
     return obj;
 }
 /*---------------------------------------------------------------*/
+
 let countdown = 60;
 
 function time(){
@@ -84,8 +95,10 @@ function time(){
             if(countdown<0){
                 active();
                 counting = false;
-                setInterval(()=>{window.location.replace("./index.html");}
-                ,(duration * 1000));
+                setInterval(()=>{selfURL();
+                    console.log("Duration:",audio_duration());
+                }
+                ,audio_duration());
                 }
         },1000);
 }
@@ -102,6 +115,10 @@ function visible(){
 
     object.audio = setupAudio(choose);
     object.img = setupImg(choose);
+}
+
+function selfURL(){
+    window.location.href="./index.html";
 }
 
 time();
