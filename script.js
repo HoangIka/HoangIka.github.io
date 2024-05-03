@@ -7,8 +7,8 @@ function biding_map(obj1,obj2,number){
     }
     return map;
 }
-const source = "./";
-const map = biding_map(source+"image",source+"scares",2);
+
+const map = biding_map("./image","./scares",2);
 
 var object = {};
 var counting = false;
