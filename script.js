@@ -55,7 +55,7 @@ function setupAudio(choose){
     obj.setAttribute("type","audio/mpeg");
     obj.setAttribute("controls","");
     obj.classList.add("playing");
-    obj.style.display="none";
+    obj.style.display="";
     
     temp = obj;
     temp.setAttribute("muted","true");
