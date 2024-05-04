@@ -5,26 +5,24 @@ body{
   background-color: black;
   
 }
-
-.container{
-  position: relative;
-  overflow: visible;
+.border{
+  border: 3px dashed white;
 }
 
 .btn{
   position: absolute;
-  height: 10rem;
-  width: 10rem;
+  height: 150px;
+  min-height: 50px;
+  width: 150px;
+  min-width: 50px;
   background-color: gray;
-  
-  margin-top: 40vh;
-  margin-left: 40vw;
+  transform-origin: center;
   
   font-family: "Creepster", system-ui;
   font-weight: 400;
   font-style: normal;
   color: red;
-  font-size: 2.5rem;
+  font-size: 250%;
   border-radius: 25%;
   animation: shake 3s infinite;
   z-index: 0;
@@ -46,10 +44,9 @@ body{
 .image{
   position: absolute;
   z-index: 100;
-  top: 15vh;
-  left: 45vw;   
-  height: 150%;
-  width: auto;
+  height: 100vh;
+  width: 100vw;
+  object-fit: fill;
 }
 
 .test{
@@ -60,10 +57,8 @@ body{
 
 .timer{
   position: absolute;
-  margin-top: 32vh;
-  margin-left: 35vw;
   z-index: 50;
-  
+  top: 25vh;
   font-family: "Creepster", system-ui;
   font-weight: 400;
   font-style: normal;
@@ -86,14 +81,18 @@ body{
     transform: rotate(-20deg);
   }
 }
-#parthidden{
-  display: none;
+.partvisible, .parthidden{
+  display: flex;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
 }
-.container .cre{
+.cre{
   font-family: "Creepster", system-ui;
   font-weight: 400;
   font-style: normal;
-  margin: 0;
   
   font-size: 2.5vh;
   color: red;
@@ -104,6 +103,8 @@ body{
 }
 .playing{
   position: absolute;
-  margin: 50px;
+  transform-origin: center;
+  left: 50vw;
+  right: 50vw;
   z-index: 400;
 }

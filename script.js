@@ -7,8 +7,8 @@ function biding_map(obj1,obj2,number){
     }
     return map;
 }
-
-const map = biding_map("./image","./scares",2);
+const source = "./";
+const map = biding_map(source+"image",source+"scares",2);
 
 var object = {};
 var counting = false;
@@ -104,11 +104,11 @@ function time(){
 }
 function visible(){
     let part1 = document.querySelector(".partvisible");
-    let part2 = document.querySelector(".parthidden")
+    let part2 = document.querySelector(".parthidden");
     let bg_audio = document.querySelector(".bg-audio");
     
     bg_audio.play();
-    part2.style.display = "inline";
+    part2.style.display = "flex";
     part1.style.display = "none";
     
     const choose = randomized(map.length);
