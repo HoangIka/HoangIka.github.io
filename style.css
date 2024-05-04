@@ -46,8 +46,8 @@ body{
 .image{
   position: absolute;
   z-index: 100;
-  margin-top: 15vh;
-  margin-left: -45vw;   
+  top: 15vh;
+  left: -45vw;   
   height: 150%;
   width: auto;
 }
