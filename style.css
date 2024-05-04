@@ -61,7 +61,7 @@ body{
 .timer{
   position: absolute;
   margin-top: 32vh;
-  margin-left: 45vw;
+  margin-left: 35vw;
   z-index: 50;
   
   font-family: "Creepster", system-ui;
